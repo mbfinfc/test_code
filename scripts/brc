@@ -1,0 +1,39 @@
+# .bashrc
+
+get_cluster_ids ()
+{
+    curl -ivku root:hpinvent https://localhost:9443/pml/clustermanagement?pretty=true
+}
+
+##
+## Call with security_mode stree name.
+##
+function make_stree()
+{
+	if [ "$#" -ne 2 ]
+	then
+		echo "Usage: make_stree security_mode stree_name"
+		return
+	fi
+	cluster_name=`curl -ivku root:hpinvent https://localhost:9443/pml/clustermanagement?pretty=true 2> /dev/null | \
+            fgrep name | sed -e 's/[ ]*<name>//' -e 's/<\/name>//'`
+
+	curl -X POST -vku root:hpinvent --header 'Accept: application/xml' --header \
+             'Content-Type: application/xml' -i --delegation none \
+              --data "<sTree><name>${2}</name><comment>work</comment><segment>1</segment><securityMode>${1}</securityMode></sTree>" \
+               https://localhost:9443/hp/rest/provisioning/${cluster_name}/file/provisioningGroup/emFSPool0/virtualServer/emVfs0/fileStore
+}
+
+test2307()
+{
+    curl -X GET -u root:hpinvent --header 'Accept: application/xml' --header \
+        'Content-Type: application/xml' -i --delegation none -k --noproxy \
+        localhost https://localhost:9443/protocols/rfc2307
+}
+
+enable2307()
+{
+     curl -X PUT -u root:hpinvent --header 'Accept: application/xml' --header \
+         'Content-Type: application/xml' -i --delegation none --data '<rfc2307><enabled>true</enabled></rfc2307>' \
+         -v -k --noproxy localhost https://localhost:9443/protocols/rfc2307
+}

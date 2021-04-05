@@ -1,0 +1,37 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Data1	table.h	/^    u_int32_t Data1;$/;"	m	struct:_GUID
+Data2	table.h	/^    u_int16_t Data2;$/;"	m	struct:_GUID
+Data3	table.h	/^    u_int16_t Data3;$/;"	m	struct:_GUID
+Data4	table.h	/^    u_char_t  Data4[8];$/;"	m	struct:_GUID
+GUID	table.h	/^} GUID, *PGUID;$/;"	t	typeref:struct:_GUID
+MAX_TABLE_SIZE	table.h	20;"	d
+PGUID	table.h	/^} GUID, *PGUID;$/;"	t	typeref:struct:_GUID
+_GUID	table.h	/^typedef struct _GUID {$/;"	s
+__TABLE_H__	table.h	3;"	d
+_hBucket	table.h	/^typedef struct _hBucket$/;"	s
+_hTable	table.h	/^typedef struct _hTable$/;"	s
+hashFunc_t	table.h	/^typedef int  (*hashFunc_t)    (hash_key_t *key);$/;"	t
+hashKeyComp_t	table.h	/^typedef bool (*hashKeyComp_t) (hash_key_t *k1, hash_key_t *k2);$/;"	t
+hash_bucket_t	table.h	/^} hash_bucket_t, *phash_bucket_t;$/;"	t	typeref:struct:_hBucket
+hash_element_t	table.h	/^typedef void hash_element_t;$/;"	t
+hash_key_t	table.h	/^typedef GUID hash_key_t;$/;"	t
+hash_table_t	table.h	/^} hash_table_t, *phash_table_t;$/;"	t	typeref:struct:_hTable
+hb_pElement	table.h	/^    hash_element_t    *hb_pElement;$/;"	m	struct:_hBucket
+hb_pKey	table.h	/^    hash_key_t        *hb_pKey;$/;"	m	struct:_hBucket
+hb_pNext	table.h	/^    struct _hBucket   *hb_pNext;$/;"	m	struct:_hBucket	typeref:struct:_hBucket::_hBucket
+hb_pPrev	table.h	/^    struct _hBucket   *hb_pPrev;$/;"	m	struct:_hBucket	typeref:struct:_hBucket::_hBucket
+htCreate	table.c	/^htCreate(size_t size)$/;"	f
+htGetHash	table.c	/^htGetHash(hash_key_t *pKey)$/;"	f
+htGetHash	table.h	/^hashFunc_t    htGetHash;$/;"	v
+htKeyComp	table.c	/^htKeyComp(hash_key_t *pKey1, hash_key_t *pKey2)$/;"	f
+htKeyComp	table.h	/^hashKeyComp_t htKeyComp;$/;"	v
+ht_entryCount	table.h	/^    u_int32_t              ht_entryCount;$/;"	m	struct:_hTable
+ht_pBucketList	table.h	/^    struct hash_bucket_t  *ht_pBucketList; \/* my favorite name... *\/$/;"	m	struct:_hTable	typeref:struct:_hTable::hash_bucket_t
+main	main.c	/^main(int argc, char **argv)$/;"	f
+phash_bucket_t	table.h	/^} hash_bucket_t, *phash_bucket_t;$/;"	t	typeref:struct:_hBucket
+phash_table_t	table.h	/^} hash_table_t, *phash_table_t;$/;"	t	typeref:struct:_hTable
